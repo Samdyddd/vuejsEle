@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+  <div class="dataSever">{{goods}}</div>
+  <myInput :goods="goods" @child-goods-change="goodChange"></myInput>
+</div>
+<script>
+  Vue.component('myInput',{
+      template:'<input type="text" v-model="myGoods">',
+    props:['goods'],
+    data(){
+          return{
+              myGoods:this.goods
+          }
+    },
+    watch:{
+      myGoods(val){
+          this.$emit("child-goods-change",val)
+      }
+    }
+  })
+  new Vue({
+      el:"#app",
+    data:{
+          goods:'初识数据'
+    },
+    methods:{
+          goodChange(val){
+              this.good= val;
+          }
+    }
+  })
+
+
+</script>
+
+</body>
+</html>

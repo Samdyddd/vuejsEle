@@ -1,0 +1,6 @@
+传输size和score两个参数
+
+computed：是返回star-(+size)>>
+函数items()是
+return result一个数组，里面都是类名，在stylus设置它的bg-image然后输出星星。
+
